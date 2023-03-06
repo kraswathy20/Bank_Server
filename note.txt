@@ -1,0 +1,52 @@
+Server Creation
+----------------
+
+1. create package.json file   --     npm init
+2. install Express framework  --     npm i express
+
+
+
+server side technology  -   Node (Resolves multiple request at a time)
+specialities of node
+1. asynchronous request handling -- Multiple request can be handled simultaniously
+    there will not be delay.
+2. http request(API) request will be send from the client to the server,when server receives the response,
+   it is then sed to the clientas API response through server
+
+    header                          body
+    secret data                     data-json type                 | json type means--can be string or object
+
+
+ Http request types
+ -------------------
+
+    GET    - READ
+    POST   - CREATE
+    PUT    - COMPLETE UPDATION
+    PATCH  - PARTIAL UPDATION
+    DELETE - REMOVE DATA
+
+Server response  status code
+----------------------------
+
+100  - infomation pass
+200  - Success
+300  - redirection
+400  - client error
+500  - Server side error (n/w error)
+
+
+Server Creation steps
+----------------------
+
+1. import express
+2. create app using express
+3. port number setting  --- 3000  (to run app)
+4. resolve http requests
+
+Nodemon
+-------
+if we are running server using node ,then recombilation(rerunning) will not work ,so we use another server 
+that is Nodemon
+
+- npm i -g nodemon
