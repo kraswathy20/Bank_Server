@@ -49,4 +49,12 @@ Nodemon
 if we are running server using node ,then recombilation(rerunning) will not work ,so we use another server 
 that is Nodemon
 
-- npm i -g nodemon
+ - npm i -g nodemon 
+
+
+ nodemon index.js
+
+
+ express.json() ----used to convert data from json into js and receive/accept the data into the server
+ .json(data)  ----- convert(js to json) and send the data as response
+ .status(statuscode)---- change the response status code as statuscode
