@@ -13,7 +13,6 @@ const app=express()
 app.use(express.json())
 
 // register  - post
-
 app.post('/register',(req,res)=>{
 
    const result = dataService.register(req.body.uname,req.body.acno,req.body.psw)
@@ -22,26 +21,33 @@ app.post('/register',(req,res)=>{
     // res.send("Success")
 })
 
-// create request
-// app.get('/',(req,res)=>{
-//     res.send("Get Method... getting started")
-// })
+// login
+app.get('/login',(req,res)=>{
 
-// // create request
-// app.post('/',(req,res)=>{
-//     res.send("Post Method... getting started")
-// })
+    const result = dataService.login(req.body.acno,req.body.psw)
+    res.status(result.statusCode).json(result)
+     // console.log(req.body);
+     // res.send("Success")
+ })
 
-// // create request
-// app.patch('/',(req,res)=>{
-//     res.send("Patch Method... getting started")
-// })
+// Deposit
+app.post('/deposit',(req,res)=>{
 
-// // create request
-// app.put('/',(req,res)=>{
-//     res.send("Put Method... getting started")
-// })
+    const result = dataService.deposit(req.body.acnum,req.body.password,req.body.amount)
+    res.status(result.statusCode).json(result)
+     // console.log(req.body);
+     // res.send("Success")
+ })
+//  withdraw
+app.post('/withdraw',(req,res)=>{
+
+    const result = dataService.withdraw(req.body.acnum,req.body.password,req.body.amount)
+    res.status(result.statusCode).json(result)
+     // console.log(req.body);
+     // res.send("Success")
+ })
+
+
 
 // create port
 app.listen(3000,()=>{console.log("server started at port number 3000");})
-

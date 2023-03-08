@@ -26,8 +26,135 @@ register=(uname,acno,psw)=>{
       }
     }
   
-  }
+  } 
   
+  login=(acno, psw)=>{
+
+      if(acno in userDetails){
+        if(psw==userDetails[acno]["password"]){
+          currentUser=userDetails[acno]["username"]
+          // alert("login Successfull!!")
+  
+          currentAcno=acno
+        
+          return {
+            status:true,
+            message:"Login Successfull",
+            statusCode:200,
+            currentAcno,
+            currentUser
+          }
+        }
+        else{
+          return {
+            status:false,
+            message:"Incorrect password",
+            statusCode:401
+          }
+        }
+  
+      }
+      else{
+        return {
+          status:false,
+          message:"User Not Found!!",
+          statusCode:401
+        }
+      }
+      
+  }
+
+  deposit=(acnum,password,amount)=>{
+   
+    // convert string to integer
+    var amnt=parseInt(amount)
+    if(acnum in userDetails){
+      if(password==userDetails[acnum]["password"]){
+        // update balance
+        userDetails[acnum]["balance"]+=amnt
+  
+        // transaction data store
+        userDetails[acnum]["transaction"].push({Type:"CREDIT",amount:amnt})
+  
+        
+  
+        // return current balance
+        // return userDetails[acnum]["balance"]
+        return {
+          status:true,
+          message:`${amnt} is creadited to your account and your balance is ${userDetails[acnum]["balance"]}`,
+          statusCode:200
+
+        }
+      }
+      else{
+        return {
+          status:false,
+          message:"Incorrect Password",
+          statusCode:401
+        }
+      }
+    }
+    else{
+      return {
+        status:false,
+        message:"Incorrect Account Number",
+        statusCode:401
+      }
+    }
+  }
+
+  withdraw=(acnum,password,amount)=>{
+    
+    // convert string to integer
+    var amnt=parseInt(amount)
+    if(acnum in userDetails){
+      if(password==userDetails[acnum]["password"]){
+        if(amnt<=userDetails[acnum]["balance"]){
+          // update balance
+        userDetails[acnum]["balance"]-=amnt
+  
+        userDetails[acnum]["transaction"].push({Type:"DEBIT",amount:amnt})
+          console.log(userDetails);
+          
+          
+          // return current balance
+        // return userDetails[acnum]["balance"]
+        return{
+          status:true,
+          message:`${amnt} is withdrawn from your account and your current balance is ${userDetails[acnum]["balance"]}`,
+          statusCode:200
+
+        }
+        }
+        else{
+          
+          return {
+            status:false,
+            message:"Insufficient balance",
+            statusCode:401
+          }
+        }
+        
+      }
+      else{
+        
+        return {
+          status:false,
+          message:"Incorrect password",
+          statusCode:401
+        }
+      }
+    }
+    else{
+      
+      return {
+        status:false,
+        message:"Incorrect acnum",
+        statusCode:401
+      }
+    }
+  }
   module.exports={
-    register
+    register,login,deposit,withdraw
   }
