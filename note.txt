@@ -55,6 +55,33 @@ that is Nodemon
  nodemon index.js
 
 
- express.json() ----used to convert data from json into js and receive/accept the data into the server
- .json(data)  ----- convert(js to json) and send the data as response
+ express.json()     ----  used to convert data from json into js and receive/accept the data into the server
+ .json(data)        ---- convert(js to json) and send the data as response
  .status(statuscode)---- change the response status code as statuscode
+
+
+Token in server
+---------------
+
+JWT TOken (json web token) - token used in server.
+install 
+        - npm i jsonwebtoken
+-library - jsonwebtoken
+-sign()  - method used to generate jwt token
+-verify()- used to verify json web token
+
+Token Verification
+------------------
+middlewares
+------------
+token verification can be done using middlewares
+middlewares have the capacity to control server requests
+
+A middlewares is a function with 3 arguments - request, response, next
+There are two types of middlewares
+
+    1. Application specific middlewares
+        -works before all requests in server
+
+    2. Router specific middlewares (will be created first and then)
+        -can apply to specific request in server
