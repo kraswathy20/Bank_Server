@@ -48,9 +48,11 @@ catch {
 // register  - post
 app.post('/register',(req,res)=>{
 
-    const result=dataService.register(req.body.uname,req.body.acno,req.body.psw)
+    dataService.register(req.body.uname,req.body.acno,req.body.psw).then(result=>{
+        res.status(result.statusCode).json(result)
+    })
     // convert js to json and send
-    res.status(result.statusCode).json(result)
+    
     
 })
 
@@ -58,19 +60,22 @@ app.post('/register',(req,res)=>{
 
 app.get('/login',(req,res)=>{
 
-    const result=dataService.login(req.body.acno,req.body.psw)
+    dataService.login(req.body.acno,req.body.psw).then(result=>{
+        res.status(result.statusCode).json(result)
+
+    })
     // convert js to json and send
-    res.status(result.statusCode).json(result)
     
 })
 
 // Deposit
 app.post('/deposit',jwtMiddleware,(req,res)=>{
 
-    const result=dataService.deposit(req.body.acnum,req.body.password,req.body.amount)
+    dataService.deposit(req.body.acnum,req.body.password,req.body.amount).then(result=>{
+        res.status(result.statusCode).json(result)
+
+    })
     // convert js to json and send
-    res.status(result.statusCode).json(result)
-    
 })
 // app.post('/deposit',jwtMiddleware,(req,res)=>{
 
@@ -82,18 +87,22 @@ app.post('/deposit',jwtMiddleware,(req,res)=>{
 //  withdraw
 app.post('/withdraw',jwtMiddleware,(req,res)=>{
 
-    const result=dataService.withdraw(req.body.acnum,req.body.password,req.body.amount)
+    dataService.withdraw(req.body.acnum,req.body.password,req.body.amount).then(result=>{
+        res.status(result.statusCode).json(result)
+
+    })
     // convert js to json and send
-    res.status(result.statusCode).json(result)
     
 })
 
 // get transaction
 app.get('/transaction',jwtMiddleware,(req,res)=>{
 
-    const result=dataService.getTransaction(req.body.acno)
+    dataService.getTransaction(req.body.acno).then(result=>{
+        res.status(result.statusCode).json(result)
+
+    })
     // convert js to json and send
-    res.status(result.statusCode).json(result)
     
 })
 

@@ -85,3 +85,75 @@ There are two types of middlewares
 
     2. Router specific middlewares (will be created first and then)
         -can apply to specific request in server
+
+
+how to solve runtime error in js
+---------------------------------
+try-except
+
+try
+    error causing code
+
+catch
+    error solution
+
+
+
+Mongo DB  -database
+--------------------
+
+install mongobd server
+
+
+shell commands
+--------------
+
+CRUD  operations
+
+- show dbs                                - to see/view databases
+- use(database_name)                      - to open a  database
+- show collection                         - to see collections inside dbs
+- db.(collection_name).find()             - to read all data in a collection
+- db.(collection_name).findOne({acno:1000})- to read single data.
+- db.(collection_name).insertOne({"acno":1000,"name":"aswathy",.......})
+                                            - create new data.
+- db.(collection_name).find({balance:{gt:4000}})
+                                            - Find using a condition
+- db.(collection_name).deleteOne({"uname":"anu"})
+                                            -delete count       used to delete
+
+- db.(collection_name).updateOne({uname:anu},{$set:{uname:anu y}})
+                                            - update data
+
+
+
+
+register- insertOne
+
+login- findOne
+
+deposit- updateOne
+
+withdraw- updateOne
+
+transaction-findOne
+
+delete-deleteOne    
+
+
+server Database Integration
+---------------------------
+
+database - 27017
+server   - 3000
+
+mongoose  - it is a library used to integrate server  and mdb
+install   - npm i mongoose
+
+
+steps
+-----
+
+1. import mongoose.
+2. state a connection string to integrate.
+3. define a model for our collection inside server.
