@@ -157,3 +157,18 @@ steps
 1. import mongoose.
 2. state a connection string to integrate.
 3. define a model for our collection inside server.
+
+
+
+Frontend server Integration
+----------------------------
+
+CORS - cross orgin resource sharing
+this is a library used to integrate frontend and the server.
+(4200(fe) - 3000(server))
+
+steps
+-----
+
+1. import cross
+2. state the connection string

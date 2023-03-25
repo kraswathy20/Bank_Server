@@ -1,5 +1,9 @@
 // import dataservice file
 const dataService=require('./service/dataservice')
+
+// import cors
+const cors=require('cors')
+
 // import json web token
 const jwt=require("jsonwebtoken")
 // const jwt= require('jsonwebtoken')
@@ -11,6 +15,9 @@ const express= require("express")
 // create app using express
 
 const app=express()
+
+// conction string to fe integration. must be done after app creation
+app.use(cors({orgin:'http://localhost:4200'}))
 
 // to parse json data from req body
 app.use(express.json())

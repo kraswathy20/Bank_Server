@@ -6,7 +6,7 @@ const mongoose=require("mongoose")
 mongoose.connect('mongodb://127.0.0.1:27017/bankServer',{useNewUrlParser:true})
 
 // model (schema) creation  (model name must be singular form of collection name
-//  and first letter must be capital)
+//  and first letter must be capital)     means class creation
 
 // schema means feilds and values
 
