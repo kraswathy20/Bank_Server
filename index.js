@@ -65,7 +65,7 @@ app.post('/register',(req,res)=>{
 
 // login
 
-app.get('/login',(req,res)=>{
+app.post('/login',(req,res)=>{
 
     dataService.login(req.body.acno,req.body.psw).then(result=>{
         res.status(result.statusCode).json(result)
