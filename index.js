@@ -103,7 +103,7 @@ app.post('/withdraw',jwtMiddleware,(req,res)=>{
 })
 
 // get transaction
-app.get('/transaction',jwtMiddleware,(req,res)=>{
+app.post('/transaction',jwtMiddleware,(req,res)=>{
 
     dataService.getTransaction(req.body.acno).then(result=>{
         res.status(result.statusCode).json(result)
